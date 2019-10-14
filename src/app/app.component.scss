@@ -8,4 +8,9 @@
 
 .donate-button {
   cursor: pointer;
+  visibility: hidden;
+}
+
+.calendar-github-button, .github-button {
+  visibility: hidden;
 }
