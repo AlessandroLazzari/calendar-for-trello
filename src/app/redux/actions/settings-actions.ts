@@ -29,6 +29,7 @@ export class SettingsActions {
   static SET_BUSINESS_HOURS_START = 'SET_BUSINESS_HOURS_START';
   static SET_BUSINESS_HOURS_END = 'SET_BUSINESS_HOURS_END';
   static SET_FILTER_FOR_LABEL = 'SET_FILTER_FOR_LABEL';
+  static SET_FILTER_FOR_BOARD = 'SET_FILTER_FOR_BOARDL';
 
 
   constructor(private ngRedux: NgRedux<RootState>) {
@@ -85,6 +86,10 @@ export class SettingsActions {
 
   public setFilterForLabel(labelName: string) {
     this.ngRedux.dispatch({type: SettingsActions.SET_FILTER_FOR_LABEL, payload: labelName});
+  }
+
+  public setFilterForBoard(boardId: string) {
+    this.ngRedux.dispatch({type: SettingsActions.SET_FILTER_FOR_BOARD, payload: boardId});
   }
 
 }

@@ -120,14 +120,23 @@ export const selectCalendarCards = Reselect.createSelector(
   (cards: Card[], settings: Settings) => {
 
     const filterForLabel = settings.filterForLabel;
+    const filterForBoard = settings.filterForBoard;
+    let ret: Card[]
+    ret = cards;
+
     if (filterForLabel) {
-      return cards
+      ret = cards
         .filter(
           card => card.labels && card.labels.length > 0)
         .filter(card => card.labels.find(lbl => lbl.name === filterForLabel) !== undefined);
     } else {
-      return cards;
+      // return cards;
     }
+    if (filterForBoard) {
+      ret = ret.filter(card => card.idBoard == filterForBoard);
+    }
+    
+    return ret;
   });
 
 export const selectVisibleLabelsInRange = Reselect.createSelector(
@@ -185,3 +194,22 @@ export const selectNoDueCards = Reselect.createSelector(
       .filter(card => card.due === null);
   }
 );
+
+
+export const selectVisibleBoards = Reselect.createSelector(
+  (state: RootState) => state.boards,
+  (state: RootState) => state.settings,
+  (boards: Board[], settings: Settings) => {
+
+    const visibleBoards = Object.keys(boards).map(key => boards[key]).filter(board => {
+      if (!boards) {
+        return false;
+      }
+
+      const hasVisibleBoard = boards
+        .filter(board => !board.closed)
+        .filter(board => !settings.boardVisibilityPrefs[board.id]).length > 0;
+      return hasVisibleBoard;
+    });
+    return visibleBoards;
+  });

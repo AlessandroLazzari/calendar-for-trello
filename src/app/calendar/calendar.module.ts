@@ -15,6 +15,7 @@ import {ContextMenuService} from './context-menu-holder/context-menu.service';
 import {WeekComponent} from './week/week.component';
 import {FlexLayoutModule} from '@angular/flex-layout';
 import {MemberSelectorComponent} from './member-selector/member-selector.component';
+import {BoardSelectorComponent} from './board-selector/board-selector.component';
 import {CutStringPipe} from '../shared/cut-string.pipe';
 import {
   MatButtonModule,
@@ -58,6 +59,7 @@ import { MonthComponent } from './month/month.component';
     CutStringPipe,
     LabelSelectorComponent,
     MonthComponent,
+    BoardSelectorComponent,
   ],
   exports: [
     CalendarCardComponent,

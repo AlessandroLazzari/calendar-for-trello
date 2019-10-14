@@ -59,6 +59,10 @@ export default (state: Settings = initialState, action: any) => {
       return Object.assign({}, state, {
         filterForLabel: action.payload
       });
+      case SettingsActions.SET_FILTER_FOR_BOARD:
+        return Object.assign({}, state, {
+          filterForBoard: action.payload
+        });
     default:
       return state;
   }

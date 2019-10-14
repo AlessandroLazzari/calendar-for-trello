@@ -12,4 +12,5 @@ export class Settings {
   public businessHoursStart: number | undefined = 9;
   public businessHoursEnd: number | undefined = 18;
   public filterForLabel: string = null;
+  public filterForBoard: string = null;
 }

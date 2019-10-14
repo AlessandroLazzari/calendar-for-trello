@@ -1,0 +1,9 @@
+<mat-select [formControl]="boardCtrl" i18n-placeholder="header placeholder to filter for label" placeholder="Filter for Board">
+    <mat-option [value]="null">
+      Don't filter
+    </mat-option>
+    <mat-option *ngFor="let board of selectOptions$ | async" [value]="board.id">
+      {{board.name | cutString:30}}
+    </mat-option>
+  </mat-select>
+  

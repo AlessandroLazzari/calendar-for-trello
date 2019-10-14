@@ -1,0 +1,12 @@
+@import '~@angular/material/theming';
+@import '../../../material/theme';
+
+$active-color: mat-color($trello-app-accent, 300);
+
+:host(.active) {
+  border-bottom: 3px solid $active-color;
+}
+
+mat-select {
+  padding-top: 10px;
+}
